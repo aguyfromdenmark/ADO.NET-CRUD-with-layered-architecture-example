@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Model.Student>
+
+@{
+    ViewBag.Title = "GetAllStudents";
+}
+
+<h2>GetAllStudents</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateStudent")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstNam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            Update
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstNam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            <a href="@Url.Action("UpdateStudent","Student",new { studentId = item.Id })">Update</a>
+        </td>
+        <td>
+            <a href="@Url.Action("DeleteStudent","Student",new { studentId = item.Id })">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

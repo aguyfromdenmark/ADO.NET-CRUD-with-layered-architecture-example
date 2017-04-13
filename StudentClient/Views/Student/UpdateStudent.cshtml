@@ -1,0 +1,20 @@
+﻿@model Model.Student
+
+@{
+    ViewBag.Title = "UpdateStudent";
+}
+
+<h2>Update Student</h2>
+
+@if (Model != null)
+{
+    using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post))
+    {
+        <input type="text" name="firstName" value="@Model.FirstNam" placeholder="First name" /><br />
+        <input type="text" name="lastName" value="@Model.LastName" placeholder="Last name" /><br />
+        <input type="email" name="email" value="@Model.Email" placeholder="Email" /><br />
+        <input type="hidden" name="studentId" value="@Model.Id" /><br />
+        <button type="submit" class="btn btn-default">Update student</button> 
+    }
+}
+
